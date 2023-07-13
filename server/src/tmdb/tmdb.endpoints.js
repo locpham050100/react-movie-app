@@ -1,4 +1,4 @@
-import tmdbConfig from "./tmdb.config";
+import tmdbConfig from "./tmdb.config.js";
 
 // Create an object tmdbEndpoints containing properties as functions to build URLs for TMDb API requests.
 const tmdbEndpoints = {

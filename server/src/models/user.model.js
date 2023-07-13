@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
-import modelOptions from "./model.option";
+import modelOptions from "./model.options.js";
 
 // Defines a Mongoose schema for a user object
 const userSchema = new mongoose.Schema(

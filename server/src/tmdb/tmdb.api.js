@@ -1,5 +1,5 @@
-import axiosClient from "../axios/axios.client";
-import tmdbEndpoints from "./tmdb.endpoints";
+import axiosClient from "../axios/axios.client.js";
+import tmdbEndpoints from "./tmdb.endpoints.js";
 
 // Defines an object tmdbApi with different methods that make HTTP requests to The Movie Database (TMDb) API using Axios client.
 const tmdbApi = {

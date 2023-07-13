@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import modelOptions from "./model.option";
+import modelOptions from "./model.options.js";
 
 // Create a Mongoose model called Review based on the schema.
 export default mongoose.model(

@@ -4,6 +4,7 @@ import cors from "cors";
 import http from "http";
 import mongoose from "mongoose";
 import "dotenv/config";
+import routes from "./src/routes/index.js";
 
 // Create a new Express application instance.
 const app = express();
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 // Set up middleware to parse incoming cookies.
 app.use(cookieParser());
 
-// app.use("/api/v1", routes);
+app.use("/api/v1", routes);
 
 // Set the port number for the server.
 const port = process.env.PORT || 5000;

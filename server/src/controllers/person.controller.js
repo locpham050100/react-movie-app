@@ -1,5 +1,5 @@
-import responseHandler from "../handlers/response.handler";
-import tmdbApi from "../tmdb/tmdb.api";
+import responseHandler from "../handlers/response.handler.js";
+import tmdbApi from "../tmdb/tmdb.api.js";
 
 /**
  * Retrieve detailed information about a person from the TMDb API.
@@ -38,7 +38,7 @@ const personMedias = async (req, res) => {
     // After successfully retrieving the list of media items, returns the list with an HTTP status code of 200 (OK).
     responseHandler.ok(res, medias);
   } catch {
-    // If an error occurs during processing, the function returns an HTTP status code of 500 (Internal Server Error).
+    // If an error occurs during processing, returns an HTTP status code of 500 (Internal Server Error).
     responseHandler.error(res);
   }
 };
