@@ -5,6 +5,7 @@ import userController from "../controllers/user.controller.js";
 import requestHandler from "../handlers/request.handler.js";
 import userModel from "../models/user.model.js";
 import tokenMiddleware from "../middlewares/token.middleware.js";
+import responseHandler from "../handlers/response.handler.js";
 
 // Define routes, these routes define the URL addresses and the HTTP method for requests.
 const router = express.Router();
@@ -179,6 +180,9 @@ router.post(
 
   // Validates "mediaRate", If it doesn't, it sets an error message.
   body("mediaRate").exists().withMessage("mediaRate is required"),
+
+  // Check whether any validation error messages have been set in the request.
+  requestHandler.validate,
 
   // Handler to handle requests for adding a favorite item.
   favoriteController.addFavorite

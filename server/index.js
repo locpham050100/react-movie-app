@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 // Set up middleware to parse incoming cookies.
 app.use(cookieParser());
 
+// Mount a middleware function, a router instance at a specified path.
 app.use("/api/v1", routes);
 
 // Set the port number for the server.
