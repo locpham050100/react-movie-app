@@ -1,12 +1,14 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import GlobalLoading from "components/common/GlobalLoading";
 
 // Used to provide the main layout for the application.
 const MainLayout = () => {
   return (
     <>
       {/**global loading */}
+      <GlobalLoading />
       {/**global loading */}
 
       {/**login modal */}
