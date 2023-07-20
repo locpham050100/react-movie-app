@@ -16,7 +16,7 @@ const PageWrapper = ({ state, children }) => {
   // When PageWrapper is rendered, called and sends an action to the Redux store to update the state of the application.
   useEffect(() => {
     dispatch(setAppState(state));
-  }, [dispatch, state]);
+  }, [state, dispatch]);
 
   // Returns the child components wrapped by PageWrapper.
   return children;
