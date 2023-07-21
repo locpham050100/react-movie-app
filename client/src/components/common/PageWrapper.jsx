@@ -8,13 +8,12 @@ import { setAppState } from "../../redux/features/appStateSlice";
  * @returns
  */
 const PageWrapper = ({ state, children }) => {
-  window.scrollTo(0, 0);
-
   // Get the dispatch object from the Redux store.
   const dispatch = useDispatch();
 
   // When PageWrapper is rendered, called and sends an action to the Redux store to update the state of the application.
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(setAppState(state));
   }, [state, dispatch]);
 

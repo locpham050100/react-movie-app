@@ -16,13 +16,13 @@ const main = [
     state: "home",
   },
   {
-    display: "movie",
+    display: "movies",
     path: "/movie",
     icon: <SlideshowOutlinedIcon />,
     state: "movie",
   },
   {
-    display: "tv-series",
+    display: "tv series",
     path: "/tv",
     icon: <LiveTvOutlinedIcon />,
     state: "tv",

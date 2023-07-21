@@ -9,7 +9,7 @@ const GlobalLoading = () => {
   const { globalLoading } = useSelector((state) => state.globalLoading);
 
   // Manage the state of the linear progress bar.
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Track the value of globalLoading.
   useEffect(() => {

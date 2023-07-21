@@ -2,6 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import GlobalLoading from "components/common/GlobalLoading";
+import Footer from "components/common/Footer";
+import Topbar from "components/common/Topbar";
 
 // Used to provide the main layout for the application.
 const MainLayout = () => {
@@ -16,6 +18,7 @@ const MainLayout = () => {
 
       <Box display="flex" minHeight="100vh">
         {/** header */}
+        <Topbar />
         {/** header */}
 
         {/**main */}
@@ -28,6 +31,7 @@ const MainLayout = () => {
       </Box>
 
       {/** footer */}
+      <Footer />
       {/** footer */}
     </>
   );

@@ -15,7 +15,7 @@ const Logo = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <img src={LogoImg} alt="" height="60rem" />
+      <img src={LogoImg} alt="" height="50rem" />
       Way<span style={{ color: theme.palette.primary.main }}>Flix</span>
     </Typography>
   );
