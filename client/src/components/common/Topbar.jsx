@@ -17,6 +17,8 @@ import { setThemeMode } from "redux/features/themeModeSlice";
 import Logo from "./Logo";
 import menuConfigs from "configs/menu.configs";
 import { Link } from "react-router-dom";
+import UserMenu from "./UserMenu";
+import { setAuthModalOpen } from "redux/features/authModalSlice";
 
 // Defines a functional component called ScrollAppBar that takes two props - children and window.
 const ScrollAppBar = ({ children, window }) => {
@@ -124,6 +126,17 @@ const Topbar = () => {
             {/* Main menu */}
 
             {/* User menu */}
+            <Stack spacing={3} direction="row" alignItems="center">
+              {!user && (
+                <Button
+                  variant="contained"
+                  onClick={() => dispatch(setAuthModalOpen(true))}
+                >
+                  sign in
+                </Button>
+              )}
+            </Stack>
+            {user && <UserMenu />}
             {/* User menu */}
           </Toolbar>
         </AppBar>
