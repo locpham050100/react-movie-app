@@ -19,6 +19,7 @@ import menuConfigs from "configs/menu.configs";
 import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
 import { setAuthModalOpen } from "redux/features/authModalSlice";
+import Sidebar from "./Sidebar";
 
 // Defines a functional component called ScrollAppBar that takes two props - children and window.
 const ScrollAppBar = ({ children, window }) => {
@@ -69,8 +70,12 @@ const Topbar = () => {
     dispatch(setThemeMode(theme));
   };
 
+  // Toggle the open/closed state of the sidebar.
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <>
+      <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
       <ScrollAppBar window={undefined}>
         <AppBar elevation={0} sx={{ zIndex: 9999 }}>
           <Toolbar
@@ -80,6 +85,7 @@ const Topbar = () => {
               <IconButton
                 color="inherit"
                 sx={{ mr: 2, display: { md: "none" } }}
+                onClick={toggleSidebar}
               >
                 <MenuIcon />
               </IconButton>
