@@ -13,6 +13,9 @@ const validate = (req, res, next) => {
 
   // Method is used to check if the array of errors is empty.
   if (!errors.isEmpty()) return res.status(400).json(errors.array()[0].msg);
+
+  // Pass control to the next middleware.
+  next();
 };
 
 export default { validate };
