@@ -9,8 +9,8 @@ import userApi from "api/modules/user.api";
 import { setAuthModalOpen } from "redux/features/authModalSlice";
 import { setUser } from "redux/features/userSlice";
 
-// Creates a sign-in form for users.
-const SigninForm = ({ switchAuthState }) => {
+// Creates a sign-up form for users.
+const SignupForm = ({ switchAuthState }) => {
   // Send actions to the Redux store.
   const dispatch = useDispatch();
 
@@ -26,6 +26,8 @@ const SigninForm = ({ switchAuthState }) => {
     initialValues: {
       password: "",
       username: "",
+      displayName: "",
+      confirmPassword: "",
     },
 
     // Defines the validation rules for the form fields.
@@ -36,6 +38,12 @@ const SigninForm = ({ switchAuthState }) => {
       password: Yup.string()
         .min(8, "Password minimum 8 characters ")
         .required("Password is required"),
+      displayName: Yup.string()
+        .min(8, "Display name minimum 8 characters ")
+        .required("Display name is required"),
+      confirmPassword: Yup.string()
+        .min(8, "Confirm password minimum 8 characters ")
+        .required("Confirm password is required"),
     }),
 
     // Called when the form is submitted.
@@ -44,7 +52,7 @@ const SigninForm = ({ switchAuthState }) => {
       setIsLoginRequest(true);
 
       // Sends a sign-in request to the server.
-      const { response, err } = await userApi.signin(values);
+      const { response, err } = await userApi.signup(values);
 
       setIsLoginRequest(false);
 
@@ -66,7 +74,7 @@ const SigninForm = ({ switchAuthState }) => {
   return (
     <Box component="form" onSubmit={signinForm.handleSubmit}>
       <Stack spacing={3}>
-        {/* TextField components for the username and password fields */}
+        {/* TextField components for the username, password, displayName. confirmPassword fields */}
         <TextField
           type="text"
           placeholder="User name"
@@ -83,6 +91,23 @@ const SigninForm = ({ switchAuthState }) => {
         />
 
         <TextField
+          type="text"
+          placeholder="Display name"
+          name="displayName"
+          fullWidth
+          value={signinForm.values.displayName}
+          onChange={signinForm.handleChange}
+          color="success"
+          error={
+            signinForm.touched.displayName &&
+            signinForm.errors.displayName !== undefined
+          }
+          helperText={
+            signinForm.touched.displayName && signinForm.errors.displayName
+          }
+        />
+
+        <TextField
           type="password"
           placeholder="Password"
           name="password"
@@ -96,6 +121,24 @@ const SigninForm = ({ switchAuthState }) => {
           }
           helperText={signinForm.touched.password && signinForm.errors.password}
         />
+
+        <TextField
+          type="password"
+          placeholder="Confirm password"
+          name="confirmPassword"
+          fullWidth
+          value={signinForm.values.confirmPassword}
+          onChange={signinForm.handleChange}
+          color="success"
+          error={
+            signinForm.touched.confirmPassword &&
+            signinForm.errors.confirmPassword !== undefined
+          }
+          helperText={
+            signinForm.touched.confirmPassword &&
+            signinForm.errors.confirmPassword
+          }
+        />
       </Stack>
 
       {/*  Displays a loading state when the isLoginRequest state is true. */}
@@ -107,12 +150,12 @@ const SigninForm = ({ switchAuthState }) => {
         sx={{ marginTop: 4 }}
         loading={isLoginRequest}
       >
-        Sign in
+        Sign up
       </LoadingButton>
 
       {/* Toggle between the sign-in and sign-up forms.  */}
       <Button fullWidth sx={{ marginTop: 1 }} onClick={() => switchAuthState()}>
-        Sign up
+        Sign in
       </Button>
 
       {/* Displayed using the Alert component */}
@@ -127,4 +170,4 @@ const SigninForm = ({ switchAuthState }) => {
   );
 };
 
-export default SigninForm;
+export default SignupForm;

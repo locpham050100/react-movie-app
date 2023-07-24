@@ -9,6 +9,8 @@ import MainLayout from "components/layout/MainLayout";
 import PageWrapper from "components/common/PageWrapper";
 import routes from "routes/routes";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   // Retrieve the value of the themeMode variable from the application's state.
   const { themeMode } = useSelector((state) => state.themeMode);
