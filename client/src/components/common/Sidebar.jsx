@@ -48,7 +48,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
         </Stack>
       </Toolbar>
       <List sx={{ paddingX: "30px" }}>
-        <Typography variant="h6" marginBottom="20px">
+        <Typography variant="h6" marginBottom="20px" fontWeight="bold">
           MENU
         </Typography>
 
@@ -82,8 +82,8 @@ const Sidebar = ({ open, toggleSidebar }) => {
         {/* Checks if a user object is defined */}
         {user && (
           <>
-            <Typography variant="h6" marginBottom="20px">
-              MENU
+            <Typography variant="h6" marginBottom="20px" fontWeight="bold">
+              PERSONAL
             </Typography>
             {menuConfigs.user.map((item, index) => (
               <ListItemButton
@@ -112,7 +112,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
             ))}
           </>
         )}
-        <Typography variant="h6" marginBottom="20px">
+        <Typography variant="h6" marginBottom="20px" fontWeight="bold">
           THEME
         </Typography>
         <ListItemButton onClick={onSwitchTheme}>
